@@ -109,7 +109,7 @@
 
     auto g76_probe = [](const TempSensorID sid, celsius_t &targ, const xy_pos_t &nozpos) {
       ptc.set_enabled(false);
-      const float measured_z = probe.probe_at_point(nozpos, PROBE_PT_STOW, 0, false);  // verbose=0, probe_relative=false
+      const float measured_z = probe.probe_at_point(nozpos, PROBE_PT_STOW, 0, false, false);  // verbose=0, probe_relative=false, , sanity_check=false (added by fkogler)
       ptc.set_enabled(true);
       if (isnan(measured_z))
         SERIAL_ECHOLNPGM("!Received NAN. Aborting.");
