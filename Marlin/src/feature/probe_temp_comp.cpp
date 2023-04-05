@@ -155,8 +155,8 @@ bool ProbeTempComp::finish_calibration(const TempSensorID tsi) {
   // Sanity check
   for (calib_idx = 0; calib_idx < measurements; ++calib_idx) {
     // Restrict the max. offset
-    if (ABS(data[calib_idx]) > 2000) {
-      SERIAL_ECHOLNPGM("!Invalid Z-offset detected (0-2).");
+    if (ABS(data[calib_idx]) > 5000) {
+      SERIAL_ECHOLNPGM("!Invalid Z-offset detected (0-5).");    // changed from 2 to 5 by fkogler
       clear_offsets(tsi);
       return false;
     }
