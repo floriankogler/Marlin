@@ -645,6 +645,7 @@ void GcodeSuite::process_parsed_command(const bool no_ok/*=false*/) {
       #endif
 
       #if ENABLED(PARK_HEAD_ON_PAUSE)
+		case 601: // fkogler
         case 125: M125(); break;                                  // M125: Store current position and move to filament change position
       #endif
 
